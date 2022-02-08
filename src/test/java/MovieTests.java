@@ -13,6 +13,7 @@ public class MovieTests {
     int trukme;
     int id;
 
+
     // Before Methods for Movie Creation
     @BeforeMethod(onlyForGroups = "CreateMovie")
     public void StartCreate() {
@@ -73,8 +74,13 @@ public class MovieTests {
 
     @Test(priority = 1, groups = "CreateMovie")
     public void CreateMovieNegative() {
+        pavadinimas = "Sp";
+        zanras = "Si";
+        aktoriai = "Ne";
+        rezisierius = "Mo";
+        trukme = 100;
         CreateMovie.PopulateFields(pavadinimas, zanras, aktoriai, rezisierius, trukme);
-        Assert.assertNotEquals(CreateMovie.CreateMovie(), false);
+        Assert.assertEquals(CreateMovie.CreateMovie(), false);
     }
 
     //Tests for editing movies
@@ -87,9 +93,14 @@ public class MovieTests {
 
     @Test(priority = 4, groups = "EditMovie")
     public void EditMovieNegative() {
-
+        trukme = 0;
+        id = 0;
+        pavadinimas = "Sp";
+        zanras = "Si";
+        aktoriai = "Ne";
+        rezisierius = "Mo";
         EditMovie.PopulateFields(pavadinimas, zanras, aktoriai, rezisierius, trukme, id);
-        Assert.assertNotEquals(EditMovie.ConfirmEdit(), false);
+        Assert.assertEquals(EditMovie.ConfirmEdit(), false);
     }
 
     // Tests For removing movies

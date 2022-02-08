@@ -17,7 +17,6 @@ public class EditMovie {
 
     static ChromeDriver browser;
 
-
     public static void main(String[] args) {
         System.setProperty("webdriver.chrome.driver", "src/webdriver/chromedriver97.exe");
         String pavadinimas = "Spanzdbobas ir matrica trilogija 2";
@@ -32,7 +31,6 @@ public class EditMovie {
         // Populating fields
         PopulateFields(pavadinimas, zanras, aktoriai, rezisierius, trukme, id);
         ConfirmEdit();
-
 
     }
     // Clicking confirm and sending the results back as true - Completed false - failed
